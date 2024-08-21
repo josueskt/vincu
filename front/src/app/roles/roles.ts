@@ -1,0 +1,6 @@
+export const ROLES = {
+  ADMINISTRADOR : 'ADMINISTRADOR', //primer lor a crear 
+  TUTOR: 'TUTOR',
+  VUNCULADOR : 'VUNCULADOR',
+  ESTUDIANTE : 'ESTUDIANTE'
+  }
