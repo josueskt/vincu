@@ -5,13 +5,13 @@ back/*.env
 files/*
 
 # Angular (web)
-web/node_modules
-web/node_modules/
-web/dist/
-web/e2e/
-web/.vscode/
-web/.angular/
-web/environments
+front/node_modules
+front/node_modules/
+front/dist/
+front/e2e/
+front/.vscode/
+front/.angular/
+front/environments
 
 # Flutter (mobil)
 mobil/.dart_tool/
