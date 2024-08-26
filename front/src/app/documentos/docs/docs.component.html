@@ -1,0 +1,523 @@
+<button (click)="imprimir()">imprmir</button>
+<button (click)="imprimir_dos()">imprimir dos</button>
+<button (click)="imprimir_tres()">imprimir tres </button>
+<button (click)="imprimir_cuatro()">imprimir cuatro</button>
+<div class="a4-page" id="cinco">
+    <app-encabezado [titulo_documento]="titulo_cuatro"></app-encabezado>
+<br>
+    <div style="display:  grid; grid-template-columns: auto auto; border: solid 1px;">
+        <div style="border-right: solid 1px ;">
+            <div class="grilla">
+                <p class="gris">FUNDACION: </p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div class="grilla">
+                <p>Estudiante:</p>
+                <p>{{estudiente.nombres}}</p>
+            </div>
+            @for (item of estudiente.carrera.asignaturas; track $index) {
+                <div class="grilla">
+                    <p>ASIGNATURA {{$index +1}}: </p>
+                    <p>{{item.nombre}}</p>
+                </div>
+
+           
+            }
+            <div class="grilla">
+                <p>DOCENTE TUTOR</p> <p>{{docente_tutor.nombre}}</p>
+            </div>
+        </div>
+
+        <div>
+<div class="grilla"><p>NIVEL</p> <p>{{estudiente.nivel}}</p></div>
+<div class="grilla"><p>CEDULA</p><p>{{estudiente.cedula}}</p></div>
+<div class="grilla"><p style="">CICLO APADEMICO</p> <p>{{estudiente.proyecto.ciclo}}</p></div>
+<div class="grilla"><p>INICIA</p><p>{{estudiente.proyecto.inicia}}</p></div>
+<div class="grilla"><p>FINALIZA</p> <p>{{estudiente.proyecto.final}}</p></div>
+        </div>
+    </div>
+<br>
+<h4 style="text-align: center;"> Informe de la actividad</h4>
+
+<table>
+    <thead>
+        <tr>
+            <td>
+            semana
+        </td>
+        <td>actividades</td>
+        <td>resultados de aprendizaje </td>
+        <td>firma</td>
+    </tr>
+    <tr>
+        <td>
+            
+        </td>
+    </tr>
+    </thead>
+</table>
+
+</div>
+<div class="a4-page" id="cuatro">
+
+    <app-encabezado [titulo_documento]="titulo_cuatro"></app-encabezado>
+
+
+    <p class="text_center" style="margin-top: 10px;">INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+    </p>
+    <p class="text_center" style="font-size: 10px;">Dirección: García Moreno S-435 y Ambato </p>
+    <p class="text_center" style="font-size: 10px;">Quito - Ecuador </p>
+    <br>
+    <br>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+        <div style="border-right: solid 1px ; ">
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">carrera</p>
+                <p>{{estudiente.carrera.nombre}}</p>
+            </div>
+            <div style="">
+                <p class="gris">Docente tutor</p>
+                <p>{{docente_tutor.nombre}}</p>
+            </div>
+
+        </div>
+        <div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">Institucion</p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div>
+                <p class="gris">PERIODO ACADÉMICO: </p>
+                <p>2024-1</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div>
+        <table style="border: 1px;" class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora de Entrada</th>
+                    <th scope="col">Hora de Salida</th>
+                    <th scope="col">Total Horas</th>
+                    <th scope="col">Actividad Realizada</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (item of actividades_tutor; track $index) {
+                <tr style="font-size: 14px; padding: 0;">
+                    <td style="padding: 0;">
+                        <p>
+
+                            @if($index == 0){
+                            {{estudiente.proyecto.inicia}}
+
+                            }
+                            @else if ($index === actividades_tutor.length -1) {
+                            {{estudiente.proyecto.final}}
+
+                            }
+                            @else {
+
+                            {{item.fecha}}
+                            }
+                        </p>
+                    </td>
+
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_entrada}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_salida}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.total_h}}
+                        </p>
+                    </td>
+                    <td style="padding: 5px;">
+                        <p>
+
+                            {{item.actividad}}
+                        </p>
+                    </td>
+                </tr>
+                }
+
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <div style="border: solid 1px;">
+            <p>observaciones </p>
+
+            <br><br>
+
+        </div>
+        <br>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; ">
+            <div style=" text-align: center;">
+                <div style="height: 80px; "></div>
+                <hr>
+                <p>{{estudiente.carrera.cordinador}}</p>
+                <p>CORDINADOR DE CARRERA</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="height:  80px; "></div>
+                <hr>
+                <p>{{docente_tutor.nombre}}</p>
+                <p>DOCENTE TUTOR</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="a4-page" id="tres">
+
+    <app-encabezado [titulo_documento]="titulo_dos"></app-encabezado>
+    <p class="text_center" style="margin-top: 10px;">INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+    </p>
+    <p class="text_center" style="font-size: 10px;">Dirección: García Moreno S-435 y Ambato </p>
+    <p class="text_center" style="font-size: 10px;">Quito - Ecuador </p>
+    <br>
+    <p class="text_center">CONTROL DE ASISTENCIA Y SEGUIMIENTO DE VINCULACIÓN CON LA COMUNIDAD </p>
+    <br>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+        <div style="border-right: solid 1px ; ">
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">carrera</p>
+                <p>{{estudiente.carrera.nombre}}</p>
+            </div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">estudiante</p>
+                <p>{{estudiente.nombres}}</p>
+            </div>
+            <div>
+                <p>docente tutor</p>
+                <p>{{docente_tutor.nombre}}</p>
+            </div>
+        </div>
+        <div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">entidad beneficiada</p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">nombre del proyecto</p>
+                <p>{{titulo_proyecto}}</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+
+                <div style="border-right: solid 1px ;">
+                    <div>
+                        <p>TUTOR ENTIDAD RECEPTORA: </p>
+                        <p>{{funcacion.entidad}}</p>
+                    </div>
+                </div>
+                <div>
+                    <p>PERIODO ACADÉMICO: </p>
+                    <p>2024-1</p>
+
+                    <!-- // de onde sale el periodo ?  -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <table style="border: 1px;" class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora de Entrada</th>
+                    <th scope="col">Hora de Salida</th>
+                    <th scope="col">Total Horas</th>
+                    <th scope="col">Actividad Realizada</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (item of actividades; track $index) {
+                <tr style="font-size: 14px; padding: 0;">
+                    <td style="padding: 0;">
+                        <p>
+                            @if($index == 0){
+                            {{estudiente.proyecto.inicia}}
+
+                            }
+                            @else if ($index === actividades.length -1) {
+                            {{estudiente.proyecto.final}}
+
+                            }
+                            @else {
+
+                            {{item.fecha}}
+                            }
+                        </p>
+                    </td>
+
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_entrada}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_salida}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.total_h}}
+                        </p>
+                    </td>
+                    <td style="padding: 5px;">
+                        <p>
+
+                            {{item.actividad}}
+                        </p>
+                    </td>
+                </tr>
+                }
+
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <div style="border: solid 1px;">
+            <p>observaciones </p>
+
+            <br>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+                <div style="border-right: 1px solid;">
+                    <p style="border-bottom: solid 1px;">Estudiante</p>
+                    <div style="height: 80px; border-bottom:  solid 1px;"></div>
+                    <p>{{estudiente.nombres}}</p>
+                </div>
+                <div>
+                    <p style="border-bottom: solid 1px;">Docente Tutor</p>
+                    <div style="height:  80px; border-bottom: solid 1px;"></div>
+                    <p>{{docente_tutor.nombre}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="a4-page" id="a4-page">
+    <app-encabezado [titulo_documento]="titulo_uno"></app-encabezado>
+    <div class="cuerpo_body">
+        <p style="font-size: 15px; text-align: center; padding-top: 5px;">INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y
+            PATRIMONIO "YAVIRAC"</p>
+
+        <p style="padding-top: 10px; font-size: 15px; text-align: center;">ACTA COMPROMISO DE PARTICIPACIÓN EN
+            VINCULACIÓN CON LA COMUNIDAD</p>
+        <br>
+        <p style=" font-size: 14px;">Yo, {{estudiente.nombres}} con C.I. {{estudiente.cedula}} estudiante del Instituto
+            Superior
+            Tecnológico de Turismo y Patrimonio "YAVIRAC" de la Carrera de {{estudiente.carrera.nombre}} del
+            {{estudiente.nivel}} nivel
+            quien va a realizar la vinculación con la sociedad en la Fundación Acción Animal Ecuador
+            me comprometo a seguir las siguientes recomendaciones:
+        </p>
+
+        <p style="font-size: 12px; border: solid 1px; margin-top: 15px;">"Art. 22.- Obligaciones de los estudiantes de
+            prácticas y
+            vinculación con la
+            sociedad. -
+            a. Cumplir con las horas exigidas de prácticas pre profesionales o deformación dual y vinculación con la
+            sociedad, dentro del programa curricular de su carrera y la normativa del instituto.
+            b. Cumplir de forma eficiente, diligente y con calidez, las acciones encomendadas en el área y modalidad
+            de práctica, y vinculación con la sociedad establecida.
+            c. Conservar una apropiada presentación personal, y de ser el caso utilizar uniforme o la vestimenta de
+            acuerdo a las políticas internas de la entidad receptora o el ISTY.
+            d. Mantener absoluta reserva sobre toda información interna de la entidad receptora.
+            e. Demostrar responsabilidad, disciplina, ética y eficiencia durante el desarrollo de sus prácticas o
+            vinculación con la sociedad.
+            f. Asistir puntualmente a las jornadas establecidas por la entidad receptoras o el ISTY.
+            g. Informar en in máximo de 72 horas al tutor académico y empresarial, cuando por enfermedad o fuerza
+            mayor se vea impedido de asistir a cumplir con su jornada de prácticas o vinculación con la sociedad.
+            h. Cumplir con las disposiciones enmarcadas por el ISTY, y por la entidad receptora de lo concerniente a
+            su práctica o vinculación con la sociedad.
+            i. Informar de forma escrita al tutor académico del instituto y de la entidad receptora sobre las
+            novedades que se produzcan en el desempeño de sus tareas, a fin de establecer correctivos necesarios con
+            el fin de ayudar el normal desarrollo de sus actividades.
+            j. Guardar las debidas consideraciones éticas y humanas todo el personal en las entidades receptoras,
+            tutores académicos, responsables y demás miembros relacionados del área.
+            k. Presentar al tutor académico, la documentación necesaria para el registro de sus horas cumplidas en
+            actividades de prácticas o vinculación con la sociedad.
+            l. L. permanecer en la entidad receptora el tiempo determinado según el cronograma elaborado entre la
+            entidad receptora y el ISTY.
+            m. M. entregar un informe escrito del proyecto donde se evidencia el trabajo ejecutado en las prácticas
+            pre profesionales o formación dual y vinculación con la sociedad.
+            n. En caso de existir plazas disponibles para la realización de la vinculación con la sociedad el
+            estudiante deberá aceptar dicha plaza; y,
+            o. Las demás obligaciones que se encuentren establecidas en los convenios individuales pertinentes. ´
+            "
+        </p>
+        <p style="font-size: 12px; padding-top: 5px; border:  solid 1px;">
+            " Art 23.- Prohibiciones a los estudiantes. -
+            a. Crear documentación o circunstancias diferentes a las prácticas o vinculación con la sociedad.
+            b. Disponer de los servicios, equipos y suministros de la entidad receptora para asuntos personales,
+            salvo en casos de emergencia y previa autorización del responsable.
+            c. Asistir al lugar de desarrollo de las prácticas o vinculación con la sociedad, bajo influencia la
+            influencia de bebidas alcohólicas y sustancias sicotrópicas.
+            d. Atender o aceptar visitas de tipo particular dentro de la entidad receptora.
+            e. Cambiar de turno o encargar a otra persona, la realización de su práctica o vinculación con la
+            sociedad.
+            f. Abandonar las prácticas o vinculación con la sociedad, sin autorización del tutor académico y
+            empresarial.
+            g. Promover o participar en actos de indisciplina que alteren el normal funcionamiento de la entidad
+            receptora.
+            h. Cometer actos que alteren las buenas costumbres y que atenten contra la salud y contra la seguridad
+            de la entidad receptora o el ISTY.
+            i. Abandonar las prácticas o vinculación con la sociedad sin justificación.
+            j. Incumplir con las tareas asignadas en el área o realizar prácticas ajenas a su función.
+            k. Sustraer bienes, divulgar o copiar información de la entidad receptora; y,
+            l. Las demás establecidas en las normativas vigentes."
+        </p>
+        <p style="font-size: 12px; padding-top: 5px; border:  solid 1px; ">"El incumplimiento de lo establecido en
+            esta Acta se aplicará el Art. 24 del Reglamento Interno de Prácticas preprofesionales, formación dual y
+            vinculación con la sociedad del ISTY.
+
+            Una vez que he leído y comprendido las normas a seguir durante el desarrollo de las actividades, en mi
+            calidad de participante, entendiendo que estas son para un beneficio tanto colectivo como individual y
+            procura el bienestar de todos quienes asistimos a estos eventos, me comprometo a seguir dichas
+            recomendaciones y evitar causar cualquier actividad que pusiere en peligro a mi persona como al grupo en
+            general.
+            Una vez leído y entendido el contenido de la presente Acta, acepto las condiciones del mismo en favor de
+            mi bienestar, para constancia de lo cual lo suscriben en el día"
+
+
+
+        </p>
+        <p style="font-size: 12px; padding-top: 5px; border:  solid 1px;">
+            miércoles, 3 de enero de 2024
+        </p>
+
+
+        <table>
+            <tr>
+                <th style=" padding: 0 ; text-align: center;">Estudiante</th>
+                <th style=" padding:0; text-align: center;">Cédula de Identidad</th>
+                <th style=" padding:0 ; text-align: center;">Nivel</th>
+                <th style=" padding:0 ; text-align: center;">Firma</th>
+            </tr>
+            <tr>
+                <td>{{estudiente.nombres}}</td>
+                <td>{{estudiente.cedula}}</td>
+                <td>{{estudiente.nivel}}</td>
+                <td class="firma"></td> <!-- Espacio grande para la firma -->
+            </tr>
+        </table>
+        <div>
+            <p>en constancia</p>
+
+            <br>
+            <br>
+            <hr>
+
+            <p style="text-align: center;">{{docente_tutor.nombre}}</p>
+            <p style="text-align: center;">DOCENTE TUTOR</p>
+        </div>
+    </div>
+</div>
+<br>
+<div class="a4-page" id="dos">
+    <app-encabezado [titulo_documento]='titulo'></app-encabezado>
+    <p style="text-align: center; margin: 10px;">
+        INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+
+    </p>
+    <div style="display: grid ; grid-template-columns: 1fr 5fr; margin: 30px;">
+        <div>
+            <p>A:</p>
+            <p>De:</p>
+
+            <p>Asunto</p>
+        </div>
+        <div>
+            <p> Ing. Hernan Mejía
+                Coordinadora de Carrera</p>
+            <p> Mgs. Luis Chipuxi
+                Tutor del Proyecto </p>
+            <p> Informe de inicio de actividades del Proyecto:
+            </p>
+
+
+
+        </div>
+
+    </div>
+    <div>
+        <p style="text-align: center; font-size: 14px;">"Sistema de gestión de libros de biblioteca de la Fundación para
+            la Ayuda y Desarrollo Social Nuevo Porvenir"
+        </p>
+        <br>
+
+        <p style="font-size: 14px;">Fecha: 5/3/2024</p>
+        <br>
+    </div>
+    <div>
+        <p>Yo, <strong> {{docente_tutor.nombre}} </strong> con C.I. Nro. <strong>{{docente_tutor.cedula}}</strong> tengo
+            a bien
+            informar que siguiendo con el cronograma de actividades establecido en el proyecto de vinculación:
+
+            <strong>"{{titulo_proyecto}}"</strong>
+
+            Informo que el día de hoy 5/3/2024 del año en curso, se procedió a dar inicio con el desarrollo del mismo.
+
+            Explicar cómo se dio el inicio de las actividades y anexar fotografías.
+            Para mejorar el proceso de préstamo de libros en la biblioteca, facilitar el acceso a la información sobre
+            la disponibilidad de libros y optimizar la gestión de inventarios, los estudiantes realizaron el análisis de
+            la situación actual de la biblioteca. Este análisis permitió identificar áreas de mejora y elaborar un
+            sistema de gestión de préstamos de libros. Se desarrolló una aplicación que permite a los usuarios consultar
+            la disponibilidad de libros, realizar reservas, y gestionar sus préstamos de manera eficiente. El sistema
+            también incluye funcionalidades para el personal de la biblioteca, como la administración de inventarios y
+            el seguimiento de préstamos y devoluciones.
+
+        </p>
+        <p>Anexo 1: Capturas de pantalla referentes a las actividades de Vinculación con los grupos estudiantiles. </p>
+
+
+    </div>
+    <br><br>
+    <div class="grid-container">
+        @for (item of imagenes; track $index) {
+        <div class="grid-item">
+            <p style="font-size: 10px;">Figura {{$index +1}} :{{item.figura}}</p>
+            <img width="200px" src="{{item.imagen}}" alt="">
+        </div>
+        }
+    </div>
+
+    <br>
+    <br>
+    <hr>
+
+    <p style="text-align: center;">{{docente_tutor.nombre}}</p>
+    <p style="text-align: center;">DOCENTE TUTOR</p>
+
+
+</div>
+<br>

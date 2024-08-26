@@ -33,9 +33,9 @@ export class RolesGuard implements CanActivate {
 
     try {
       const decodedToken = jwt.verify(token, this.jwtSecretKey) as {
-        nombre_rol: string;
+        rol: string;
       };
-      const userRole = decodedToken.nombre_rol;
+      const userRole = decodedToken.rol;
 
       if (!requiredRoles.includes(userRole)) {
         this.setForbiddenResponse(context);

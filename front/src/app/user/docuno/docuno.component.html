@@ -1,0 +1,323 @@
+<button (click)="imprimir()">imprmir</button>
+
+<div class="">
+
+    <app-encabezado [titulo_documento]="titulo"></app-encabezado>
+
+
+    <p class="text_center" style="margin-top: 10px;">INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+    </p>
+    <p class="text_center" style="font-size: 10px;">Dirección: García Moreno S-435 y Ambato </p>
+    <p class="text_center" style="font-size: 10px;">Quito - Ecuador </p>
+    <br>
+    <br>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+        <div style="border-right: solid 1px ; ">
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">carrera</p>
+                <p>{{estudiente.carrera.nombre}}</p>
+            </div>
+            <div>
+                <p class="gris">Docente tutor</p>
+                <p>{{docente_tutor.nombre}}</p>
+            </div>
+
+        </div>
+        <div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">Institucion</p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div>
+                <p class="gris">PERIODO ACADÉMICO: </p>
+                <p>2024-1</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div>
+        <br>
+        <button (click)="agregar()" class="btn btn-info">agregar</button>
+        <table style="border: 1px;" class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" style="width: 80px;" >Fecha</th>
+                    <th scope="col">Hora de Entrada</th>
+                    <th scope="col">Hora de Salida</th>
+                    <th scope="col">Total Horas</th>
+                    <th scope="col">Actividad Realizada</th>
+                    <th scope="col">editar</th>
+                    <th scope="col">eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @for (item of actividades_tutor; track $index) {
+                @if (!item.editable) {
+                <tr style="font-size: 14px; padding: 0;">
+                    <td style="padding: 0;">
+                        <p>
+
+                            @if($index == 0){
+                            {{estudiente.proyecto.inicia}}
+
+                            }
+                            @else if ($index === actividades_tutor.length -1) {
+                            {{estudiente.proyecto.final}}
+
+                            }
+                            @else {
+                        <p>
+
+                            {{item.fecha}}
+                        </p>
+                        }
+                        </p>
+                    </td>
+
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_entrada}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_salida}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{secondsToTime( this.timeToSeconds(item.hora_salida)
+                            -this.timeToSeconds(item.hora_entrada))}}
+                        </p>
+                    </td>
+                    <td style="padding: 0; max-width: 200px; word-wrap: break-word;">
+                        <p style="margin: 0; white-space: normal;">
+                            {{item.actividad}}
+                        </p>
+                    </td>
+
+                    <td><button (click)="editar($index)" class="btn btn-success">editar</button></td>
+                    <td><button (click)="eliminar($index)" class="btn btn-danger">eliminar</button></td>
+                </tr>
+                }
+                @if(item.editable){
+                <td>
+                    <input type="date" [(ngModel)]="item.fecha" placeholder="Fecha">
+
+                </td>
+                <td>
+
+                    <input type="time" [(ngModel)]="item.hora_entrada" placeholder="Hora de salida">
+                </td>
+                <td>
+                    <input type="time" [(ngModel)]="item.hora_salida" placeholder="Hora de entrada">
+
+                </td>
+                <td>
+
+                    <!-- <input [(ngModel)]="item.total_h" placeholder="Total horas"> -->
+                </td>
+                <td style="padding: 0;">
+
+                    <!-- <input class="form-control" style="border: none;" placeholder="Actividad"> -->
+                    <textarea name="" id="" [(ngModel)]="item.actividad"></textarea>
+                </td>
+                <td>
+
+                    <button (click)="guardar($index)">Guardar</button>
+                </td>
+                }
+
+
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{secondsToTime(calcualr())}}</td>
+                </tr>
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <div style="border: solid 1px;">
+            <p>observaciones </p>
+
+            <br><br>
+
+        </div>
+        <br>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; ">
+            <div style=" text-align: center;">
+                <div style="height: 80px; "></div>
+                <hr>
+                <p>{{estudiente.carrera.cordinador}}</p>
+                <p>CORDINADOR DE CARRERA</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="height:  80px; "></div>
+                <hr>
+                <p>{{docente_tutor.nombre}}</p>
+                <p>DOCENTE TUTOR</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="a4-page" id="a4-page">
+
+    <app-encabezado [titulo_documento]="titulo"></app-encabezado>
+
+
+    <p class="text_center" style="margin-top: 10px;">INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+    </p>
+    <p class="text_center" style="font-size: 10px;">Dirección: García Moreno S-435 y Ambato </p>
+    <p class="text_center" style="font-size: 10px;">Quito - Ecuador </p>
+    <br>
+    <br>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+        <div style="border-right: solid 1px ; ">
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">carrera</p>
+                <p>{{estudiente.carrera.nombre}}</p>
+            </div>
+            <div style="">
+                <p class="gris">Docente tutor</p>
+                <p>{{docente_tutor.nombre}}</p>
+            </div>
+
+        </div>
+        <div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">Institucion</p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div>
+                <p class="gris">PERIODO ACADÉMICO: </p>
+                <p>2024-1</p>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div>
+        <table style="border: 1px; font-size: 12px;" class="table table-striped"  id="tabla">
+            <thead class="thead-dark" >
+                <tr>
+                    <th style="width: 80px; " scope="col">Fecha</th>
+                    <th scope="col">Hora de Entrada</th>
+                    <th scope="col">Hora de Salida</th>
+                    <th scope="col">Total Horas</th>
+                    <th scope="col">Actividad Realizada</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (item of actividades_tutor; track $index) {
+                    @if (table && $index== indexx) {
+                        <div style="height: 100px;"></div>
+                     
+                    }
+                  
+                <tr style="font-size: 14px; padding: 0;">
+                    <td style="padding: 0;">
+                        <p>
+
+                            @if($index == 0){
+                            {{estudiente.proyecto.inicia}}
+
+                            }
+                            @else if ($index === actividades_tutor.length -1) {
+                            {{estudiente.proyecto.final}}
+
+                            }
+                            @else {
+
+                            {{item.fecha}}
+                            }
+                        </p>
+                    </td>
+
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_entrada}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_salida}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{secondsToTime( this.timeToSeconds(item.hora_salida)
+                            -this.timeToSeconds(item.hora_entrada))}}
+                        </p>
+                    </td>
+                    <td style="padding: 0; max-width: 300px; word-wrap: break-word;">
+                        <p style="margin: 0; white-space: normal;">
+                            {{item.actividad}}
+                        </p>
+                    </td>
+                </tr>
+              
+                
+                }
+               
+
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+     
+        @if (observaciones_table && !table) {
+            <div style="height: 100px;"></div>
+        
+        
+        }
+        <div style="border: solid 1px;" id="separar">
+            <p>observaciones </p>
+
+            <br><br>
+
+        </div>
+        <br>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; ">
+            <div style=" text-align: center;">
+                <div style="height: 80px; "></div>
+                <hr>
+                <p>{{estudiente.carrera.cordinador}}</p>
+                <p>CORDINADOR DE CARRERA</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="height:  80px; "></div>
+                <hr>
+                <p>{{docente_tutor.nombre}}</p>
+                <p>DOCENTE TUTOR</p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

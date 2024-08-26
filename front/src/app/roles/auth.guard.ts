@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
      
       this.authService.frosbine().subscribe({ error() {
     localStorage.removeItem('token');
-        window.location.reload()
+     window.location.reload()
        
       },})
     }
@@ -36,7 +36,7 @@ export class AuthGuard implements CanActivate {
 
     if (!userRole) {
       // No tiene ningún rol, redirigir a la página no autorizada
-      this.router.navigate(['/user']);
+      this.router.navigate(['/login']);
       return false;
     }
 
@@ -44,7 +44,8 @@ export class AuthGuard implements CanActivate {
 
     if (requiredRoles && !requiredRoles.includes(userRole)) {
       // No tiene el rol necesario, redirigir a la página no autorizada
-      this.router.navigate(['/login']);
+      alert("no autorizado")
+      this.router.navigate(['/home']);
       return false;
     }
 

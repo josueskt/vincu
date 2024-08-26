@@ -27,7 +27,7 @@ export class AuthService {
 
   getUserRole(): string | null {
     const userInfo = this.getUserInfo();
-    return userInfo ? userInfo.nombre_rol : null;
+    return userInfo ? userInfo.rol : null;
   }
   frosbine(){
     return this.http.get(this.loginUrl);
