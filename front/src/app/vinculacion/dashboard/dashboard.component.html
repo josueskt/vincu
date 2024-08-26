@@ -1,10 +1,96 @@
-<div class="flex flex-col min-h-screen">
-    <app-navbar class="w-full"></app-navbar>
-<div class="flex flex-1">
-    <app-sidebar class="w-64 bg-gray-800 text-white"></app-sidebar>
-    <main class="flex-1 p-6 bg-gray-100">
-      <h2 class="text-2xl font-semibold">Welcome to your dashboard</h2>
-      <p class="mt-4 text-gray-600">Aquí va el contenido principal...</p>
-    </main>
+<app-sidebar>
+  <div class="p-6">
+    <h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Users Card -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div class="bg-blue-500 p-4">
+          <h2 class="text-white text-xl font-semibold">Total Users</h2>
+        </div>
+        <div class="p-4">
+          <p class="text-4xl font-bold text-gray-800">1,234</p>
+          <p class="text-gray-600 mt-2">Registered users</p>
+        </div>
+        <div class="bg-gray-100 p-4">
+          <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Manage users</a>
+        </div>
+      </div>
+
+      <!-- Projects Card -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div class="bg-green-500 p-4">
+          <h2 class="text-white text-xl font-semibold">Active Projects</h2>
+        </div>
+        <div class="p-4">
+          <p class="text-4xl font-bold text-gray-800">42</p>
+          <p class="text-gray-600 mt-2">Ongoing projects</p>
+        </div>
+        <div class="bg-gray-100 p-4">
+          <a href="#" class="text-green-500 hover:text-green-700 font-medium">View projects</a>
+        </div>
+      </div>
+
+      <!-- System Health Card -->
+      <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div class="bg-purple-500 p-4">
+          <h2 class="text-white text-xl font-semibold">System Health</h2>
+        </div>
+        <div class="p-4">
+          <p class="text-4xl font-bold text-gray-800">98%</p>
+          <p class="text-gray-600 mt-2">Uptime this month</p>
+        </div>
+        <div class="bg-gray-100 p-4">
+          <a href="#" class="text-purple-500 hover:text-purple-700 font-medium">View logs</a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8">
+      <mat-accordion class="w-full" multi>
+        <!-- User Activity Accordion -->
+        <mat-expansion-panel class="bg-black text-white">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="text-lg font-semibold">
+              Recent User Activity
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="py-2">Latest user actions:</p>
+          <ul class="list-disc pl-6">
+            <li>User A: Created new project</li>
+            <li>User B: Updated profile information</li>
+            <li>User C: Submitted support ticket</li>
+          </ul>
+        </mat-expansion-panel>
+
+        <!-- System Alerts Accordion -->
+        <mat-expansion-panel class="bg-black text-white">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="text-lg font-semibold">
+              System Alerts
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="py-2">Recent system notifications:</p>
+          <ul class="list-disc pl-6">
+            <li>High CPU usage detected on Server 2</li>
+            <li>Database backup completed successfully</li>
+            <li>New software update available</li>
+          </ul>
+        </mat-expansion-panel>
+
+        <!-- Admin Tasks Accordion -->
+        <mat-expansion-panel class="bg-black text-white">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="text-lg font-semibold">
+              Pending Admin Tasks
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p class="py-2">Tasks requiring attention:</p>
+          <ul class="list-disc pl-6">
+            <li>Review and approve new user registrations</li>
+            <li>Investigate reported bug in Project X</li>
+            <li>Schedule system maintenance for next week</li>
+          </ul>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
   </div>
-</div>
+</app-sidebar>
