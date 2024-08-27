@@ -1,0 +1,77 @@
+<div class="a4-page" id="dos">
+    <app-encabezado [titulo_documento]='titulo'></app-encabezado>
+    <p style="text-align: center; margin: 10px;">
+        INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+
+    </p>
+    <div style="display: grid ; grid-template-columns: 1fr 5fr; margin: 30px;">
+        <div>
+            <p>A:</p>
+            <p>De:</p>
+
+            <p>Asunto</p>
+        </div>
+        <div>
+            <p> Ing. Hernan Mejía
+                Coordinadora de Carrera</p>
+            <p> Mgs. Luis Chipuxi
+                Tutor del Proyecto </p>
+            <p> Informe de inicio de actividades del Proyecto:
+            </p>
+
+
+
+        </div>
+
+    </div>
+    <div>
+        <p style="text-align: center; font-size: 14px;">"Sistema de gestión de libros de biblioteca de la Fundación para
+            la Ayuda y Desarrollo Social Nuevo Porvenir"
+        </p>
+        <br>
+
+        <p style="font-size: 14px;">Fecha: 5/3/2024</p>
+        <br>
+    </div>
+    <div>
+        <p>Yo, <strong> {{docente_tutor.nombre}} </strong> con C.I. Nro. <strong>{{docente_tutor.cedula}}</strong> tengo
+            a bien
+            informar que siguiendo con el cronograma de actividades establecido en el proyecto de vinculación:
+
+            <strong>"{{titulo_proyecto}}"</strong>
+
+            Informo que el día de hoy 5/3/2024 del año en curso, se procedió a dar inicio con el desarrollo del mismo.
+
+            Explicar cómo se dio el inicio de las actividades y anexar fotografías.
+            Para mejorar el proceso de préstamo de libros en la biblioteca, facilitar el acceso a la información sobre
+            la disponibilidad de libros y optimizar la gestión de inventarios, los estudiantes realizaron el análisis de
+            la situación actual de la biblioteca. Este análisis permitió identificar áreas de mejora y elaborar un
+            sistema de gestión de préstamos de libros. Se desarrolló una aplicación que permite a los usuarios consultar
+            la disponibilidad de libros, realizar reservas, y gestionar sus préstamos de manera eficiente. El sistema
+            también incluye funcionalidades para el personal de la biblioteca, como la administración de inventarios y
+            el seguimiento de préstamos y devoluciones.
+
+        </p>
+        <p>Anexo 1: Capturas de pantalla referentes a las actividades de Vinculación con los grupos estudiantiles. </p>
+
+
+    </div>
+    <br><br>
+    <div class="grid-container">
+        @for (item of imagenes; track $index) {
+        <div class="grid-item">
+            <p style="font-size: 10px;">Figura {{$index +1}} :{{item.figura}}</p>
+            <img width="200px" src="{{item.imagen}}" alt="">
+        </div>
+        }
+    </div>
+
+    <br>
+    <br>
+    <hr>
+
+    <p style="text-align: center;">{{docente_tutor.nombre}}</p>
+    <p style="text-align: center;">DOCENTE TUTOR</p>
+
+
+</div>

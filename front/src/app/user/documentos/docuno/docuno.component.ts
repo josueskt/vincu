@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { EncabezadoComponent } from '../../documentos/encabezado/encabezado.component';
 import { FormsModule } from '@angular/forms';
-import { PdfService } from '../../pdf.service';
+import { EncabezadoComponent } from '../../../documentos/encabezado/encabezado.component';
+import { PdfService } from '../../../pdf.service';
 
 @Component({
   selector: 'app-docuno',
@@ -59,8 +59,8 @@ agregar() {
 
   this.calcualr();
 
-  this.table = this.isDivHeightGreaterThan("tabla", 600);
-this.observaciones_table = this.isDivHeightGreaterThan("tabla", 450);
+  this.table = this.isDivHeightGreaterThan("tabla", 800);
+this.observaciones_table = this.isDivHeightGreaterThan("tabla", 750);
   if(!this.table){
 
     this.indexx = newIndex

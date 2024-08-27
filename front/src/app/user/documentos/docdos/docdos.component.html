@@ -1,0 +1,56 @@
+<div class="a4-page" id="cinco">
+    <app-encabezado [titulo_documento]="titulo"></app-encabezado>
+<br>
+    <div style="display:  grid; grid-template-columns: auto auto; border: solid 1px;">
+        <div style="border-right: solid 1px ;">
+            <div class="grilla">
+                <p class="gris">FUNDACION: </p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div class="grilla">
+                <p>Estudiante:</p>
+                <p>{{estudiente.nombres}}</p>
+            </div>
+            @for (item of estudiente.carrera.asignaturas; track $index) {
+                <div class="grilla">
+                    <p>ASIGNATURA {{$index +1}}: </p>
+                    <p>{{item.nombre}}</p>
+                </div>
+
+           
+            }
+            <div class="grilla">
+                <p>DOCENTE TUTOR</p> <p>{{docente_tutor.nombre}}</p>
+            </div>
+        </div>
+
+        <div>
+<div class="grilla"><p>NIVEL</p> <p>{{estudiente.nivel}}</p></div>
+<div class="grilla"><p>CEDULA</p><p>{{estudiente.cedula}}</p></div>
+<div class="grilla"><p style="">CICLO APADEMICO</p> <p>{{estudiente.proyecto.ciclo}}</p></div>
+<div class="grilla"><p>INICIA</p><p>{{estudiente.proyecto.inicia}}</p></div>
+<div class="grilla"><p>FINALIZA</p> <p>{{estudiente.proyecto.final}}</p></div>
+        </div>
+    </div>
+<br>
+<h4 style="text-align: center;"> Informe de la actividad</h4>
+
+<table>
+    <thead>
+        <tr>
+            <td>
+            semana
+        </td>
+        <td>actividades</td>
+        <td>resultados de aprendizaje </td>
+        <td>firma</td>
+    </tr>
+    <tr>
+        <td>
+            
+        </td>
+    </tr>
+    </thead>
+</table>
+
+</div>

@@ -1,0 +1,145 @@
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
+* {
+    margin: 0;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.a4-page {
+    width: 200mm;
+   
+    margin: 0 auto;
+    padding: 15mm;
+    
+}
+
+
+.cuerpo {
+    font-size: 12px;
+
+}
+
+.cabeza {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr 1fr;
+
+}
+
+.cabeza>.celdas {
+
+
+    border: 1px solid black;
+
+}
+
+.cabeza>.celdas>.datos {
+
+
+    border-top: 1px solid black;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 12px;
+}
+
+.celdas img {
+    display: block;
+
+    margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
+}
+
+th,
+td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #b9b9b9;
+   
+}
+
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+.text_center{
+    text-align: center;
+    font-size: 14px;
+}
+
+
+td.firma {
+    height: 50px;
+    width: 200px;
+}
+hr {
+width: 50%; /* Define el ancho como el 50% del contenedor padre */
+margin: 20px auto; /* Centra horizontalmente con un margen automático */
+border: 1px solid black; /* Define el estilo del borde */
+}
+
+@media print {
+
+    body,
+    .a4-page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0;
+        box-shadow: none;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 16px; /* Espacio entre los elementos */
+    padding: 16px;  /* Espacio alrededor de la cuadrícula */
+  }
+  
+  .grid-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .grid-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .gris{
+    background-color: #b9b9b9;
+  }
+  .grilla{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    border-bottom:  solid 1px;
+    
+  }
+  .grilla > p{
+    margin-left: 3px;
+  }

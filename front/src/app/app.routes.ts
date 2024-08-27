@@ -1,28 +1,67 @@
 import { Routes } from '@angular/router';
 import { IntialHomeComponent } from './intial-home/intial-home.component';
 import { LoginComponent } from './login/login.component';
-import { UserhomeComponent } from './user/userhome/userhome.component';
-import { DocunoComponent } from './user/docuno/docuno.component';
 import { DocsComponent } from './documentos/docs/docs.component';
 import { AuthGuard } from './roles/auth.guard';
+import { DocunoComponent } from './user/documentos/docuno/docuno.component';
+import { DoccincoComponent } from './user/documentos/doccinco/doccinco.component';
+import { DoccuatroComponent } from './user/documentos/doccuatro/doccuatro.component';
+import { DocdosComponent } from './user/documentos/docdos/docdos.component';
+import { DocnueveComponent } from './user/documentos/docnueve/docnueve.component';
+import { DocochoComponent } from './user/documentos/dococho/dococho.component';
+import { DocseisComponent } from './user/documentos/docseis/docseis.component';
+import { DocsieteComponent } from './user/documentos/docsiete/docsiete.component';
+import { DoctesComponent } from './user/documentos/doctes/doctes.component';
 
 export const routes: Routes = [
 
-    { path: "home", component: IntialHomeComponent },
+    //     ADMINISTRADOR : 'ADMINISTRADOR', //primer lor a crear 
+    //   TUTOR: 'TUTOR',
+    //   VUNCULADOR : 'VUNCULADOR',
+    //   ESTUDIANTE : 'ESTUDIANTE'
+
+    {
+        path: "home", component: IntialHomeComponent, canActivate: [AuthGuard],
+        data: { roles: ['ADMINISTRADOR', 'TUTOR', 'VUNCULADOR', 'ESTUDIANTE'] }
+    },
     { path: "login", component: LoginComponent },
     { path: "documentos", component: DocsComponent },
-
     { path: '', redirectTo: '/login', pathMatch: 'full' },
+    // ESTUDIANTE -----------------------------------------------------------------------------------------------
     {
         path: 'user', canActivate: [AuthGuard],
         data: { roles: ['ESTUDIANTE'] }, children: [
-            { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
+            { path: "docuno", component: DocunoComponent, canActivate: [AuthGuard] },
+            { path: "docdos", component: DocdosComponent, canActivate: [AuthGuard] },
+            { path: "doctres", component: DoctesComponent, canActivate: [AuthGuard] },
+            { path: "doccuatro", component: DoccuatroComponent, canActivate: [AuthGuard] },
+            { path: "doccinco", component: DoccincoComponent, canActivate: [AuthGuard] },
+            { path: "docseis", component: DocseisComponent, canActivate: [AuthGuard] },
+            { path: "docsiete", component: DocsieteComponent, canActivate: [AuthGuard] },
+            { path: "dococho", component: DocochoComponent, canActivate: [AuthGuard] },
+            { path: "docnueve", component: DocnueveComponent, canActivate: [AuthGuard] },
 
 
         ]
     },
+    // ADMINISTRADOR -------------------------------------------------------------------------------------------
+    {
+        path: 'administrador', canActivate: [AuthGuard],
+        data: { roles: ['ADMINISTRADOR'] }, children: [
+            //  { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
 
 
+        ]
+    },
+    //VINCULADOR -------------------------------------------------------------------------------------------------
 
+    {
+        path: 'vinculador', canActivate: [AuthGuard],
+        data: { roles: ['VUNCULADOR'] }, children: [
+            //  { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
+
+
+        ]
+    },
 
 ];

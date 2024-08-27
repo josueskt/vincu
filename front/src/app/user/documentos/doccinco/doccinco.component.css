@@ -16,11 +16,10 @@ body {
 
 .a4-page {
     width: 200mm;
-    
+   
     margin: 0 auto;
     padding: 15mm;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    
 }
 
 

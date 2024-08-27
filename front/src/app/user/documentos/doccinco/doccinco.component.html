@@ -1,0 +1,136 @@
+<div class="a4-page" id="tres">
+
+    <app-encabezado [titulo_documento]="titulo"></app-encabezado>
+    <p class="text_center" style="margin-top: 10px;">INSTITUTO SUPERIOR TECNOLÓGICO DE TURISMO Y PATRIMONIO "YAVIRAC"
+    </p>
+    <p class="text_center" style="font-size: 10px;">Dirección: García Moreno S-435 y Ambato </p>
+    <p class="text_center" style="font-size: 10px;">Quito - Ecuador </p>
+    <br>
+    <p class="text_center">CONTROL DE ASISTENCIA Y SEGUIMIENTO DE VINCULACIÓN CON LA COMUNIDAD </p>
+    <br>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+        <div style="border-right: solid 1px ; ">
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">carrera</p>
+                <p>{{estudiente.carrera.nombre}}</p>
+            </div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">estudiante</p>
+                <p>{{estudiente.nombres}}</p>
+            </div>
+            <div>
+                <p>docente tutor</p>
+                <p>{{docente_tutor.nombre}}</p>
+            </div>
+        </div>
+        <div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">entidad beneficiada</p>
+                <p>{{funcacion.nombre}}</p>
+            </div>
+            <div style="border-bottom: solid 1px;">
+                <p class="gris" style="border-bottom: solid 1px;">nombre del proyecto</p>
+                <p>{{titulo_proyecto}}</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+
+                <div style="border-right: solid 1px ;">
+                    <div>
+                        <p>TUTOR ENTIDAD RECEPTORA: </p>
+                        <p>{{funcacion.entidad}}</p>
+                    </div>
+                </div>
+                <div>
+                    <p>PERIODO ACADÉMICO: </p>
+                    <p>2024-1</p>
+
+                    <!-- // de onde sale el periodo ?  -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <table style="border: 1px;" class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora de Entrada</th>
+                    <th scope="col">Hora de Salida</th>
+                    <th scope="col">Total Horas</th>
+                    <th scope="col">Actividad Realizada</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (item of actividades; track $index) {
+                <tr style="font-size: 14px; padding: 0;">
+                    <td style="padding: 0;">
+                        <p>
+                            @if($index == 0){
+                            {{estudiente.proyecto.inicia}}
+
+                            }
+                            @else if ($index === actividades.length -1) {
+                            {{estudiente.proyecto.final}}
+
+                            }
+                            @else {
+
+                            {{item.fecha}}
+                            }
+                        </p>
+                    </td>
+
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_entrada}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.hora_salida}}
+                        </p>
+                    </td>
+                    <td style="padding: 0;">
+                        <p>
+
+                            {{item.total_h}}
+                        </p>
+                    </td>
+                    <td style="padding: 5px;">
+                        <p>
+
+                            {{item.actividad}}
+                        </p>
+                    </td>
+                </tr>
+                }
+
+                <!-- Añadir más filas según sea necesario -->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div>
+        <div style="border: solid 1px;">
+            <p>observaciones </p>
+
+            <br>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; border: solid 1px;">
+                <div style="border-right: 1px solid;">
+                    <p style="border-bottom: solid 1px;">Estudiante</p>
+                    <div style="height: 80px; border-bottom:  solid 1px;"></div>
+                    <p>{{estudiente.nombres}}</p>
+                </div>
+                <div>
+                    <p style="border-bottom: solid 1px;">Docente Tutor</p>
+                    <div style="height:  80px; border-bottom: solid 1px;"></div>
+                    <p>{{docente_tutor.nombre}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
