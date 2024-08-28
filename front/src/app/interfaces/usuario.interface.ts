@@ -7,3 +7,4 @@ export interface Usuario {
     cedula:string
     carrera:string
 }
+
