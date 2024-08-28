@@ -22,7 +22,7 @@ export const routes: Routes = [
 
     {
         path: "home", component: IntialHomeComponent, canActivate: [AuthGuard],
-        data: { roles: ['ADMINISTRADOR', 'TUTOR', 'VUNCULADOR', 'ESTUDIANTE'] }
+        data: { roles: ['ADMINISTRADOR', 'TUTOR', 'VINCULADOR', 'ESTUDIANTE'] }
     },
     { path: "login", component: LoginComponent },
     { path: "documentos", component: DocsComponent },
@@ -57,7 +57,7 @@ export const routes: Routes = [
 
     {
         path: 'vinculador', canActivate: [AuthGuard],
-        data: { roles: ['VUNCULADOR'] }, children: [
+        data: { roles: ['VINCULADOR'] }, children: [
             //  { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
 
 

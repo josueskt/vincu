@@ -1,13 +1,82 @@
-vanbar aqui  <button (click)="salir()">salir</button>
-
-@if (rol === "ADMINISTRADOR") {
-
+<div class="sidebar-container bg-gray-100 h-screen">
+    <mat-toolbar class="toolbar bg-gray-900 text-white shadow-lg flex justify-between items-center">
+      <div class="flex items-center">
+        <button
+          (click)="toggleDrawer()"
+          mat-icon-button
+          class="burger text-gray-400 hover:text-white hover:bg-gray-800 p-2 rounded-full transition-all duration-300 transform hover:scale-110">
+          <mat-icon>menu_open</mat-icon>
+        </button>
+        <span class="ml-4 text-xl font-semibold">Vinculación</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <button mat-icon-button class="text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-all duration-300 transform hover:scale-110">
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="userMenu" class="flex items-center text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-all duration-300 transform hover:scale-110">
+          <img src="" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+          <mat-icon>expand_more</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>person_outline</mat-icon>
+            <span>Perfil</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>settings</mat-icon>
+            <span>Configuración</span>
+          </button>
+          <button mat-menu-item (click)="salir()">
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar sesión</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>  <mat-drawer-container class="drawer-container h-full" [hasBackdrop]="mdcBackdrop">
+      <mat-drawer #drawer class="drawer w-64 bg-gray-800 shadow-xl" [mode]="drawerMode">
+        <div class="sidenav-content p-4">
+          <div class="logo-container mb-8 flex justify-center items-center">
+            <img src="" alt="Logo" class="w-32 h-auto rounded-lg shadow-md">
+          </div>
+          <nav class="space-y-4">
+            <a routerLink="/dashboard" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+              <mat-icon class="mr-3">dashboard</mat-icon>
+              <span>Dashboard</span>
+            </a>
+            <a routerLink="/projects" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+              <mat-icon class="mr-3">folder_open</mat-icon>
+              <span>Proyectos</span>
+            </a>
+            <a routerLink="/reports" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+              <mat-icon class="mr-3">bar_chart</mat-icon>
+              <span>Reportes</span>
+            </a>
+            <a routerLink="/settings" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+              <mat-icon class="mr-3">settings</mat-icon>
+              <span>Configuraciones</span>
+            </a>
+          </nav>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content class="content p-6 bg-gray-100">
+        
+        @if (rol === "ADMINISTRADOR") {
+          
+          <app-adminhome></app-adminhome>
     
-}@else if (rol === 'ESTUDIANTE') {
+        }@else if (rol === 'ESTUDIANTE') {
+        
+            <app-userhome></app-userhome>
+        }
+        @else if (rol === 'VUNCULADOR') {
+        
+          <app-vunculadorhome></app-vunculadorhome>
+        }
+        
+        
 
-    <app-userhome></app-userhome>
-}
-@else if (rol === 'VUNCULADOR') {
 
-    <app-userhome></app-userhome>
-}
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+  
