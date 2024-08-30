@@ -1,68 +1,72 @@
 .toolbar {
-    height: 64px;
-    background-color: #ffffff;
-  }
-  
-  .biggerbutton {
-    width: 150px !important;
-    height: 100px !important;
-    font-size: 30px !important;
-  }
-  
-  .toolBarButton, .drawerButton {
-    padding: 20px;
-  }
-      .full-width {
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .container {
-        height: calc(100vh - 64px);
-      }
-  .drawer {
-    background-color: #222222;
-    width: 200px;
-  }
-  .drawer-content {
-    flex: 1;
-    overflow-y: auto;
+  flex-shrink: 0;
+  height: 64px;
+  background-color: #ffffff;
+  width: 100%;
 }
-  
-  .burger {
-    color: rgb(0, 0, 0);
-  }
-  
-  @media all and (max-width: 500px) {
-    .toolBarButton {
-      display: none;
-    }
-  
-    .toolbar {
-      height: 5%;
-    }
-  
-    .container {
-      height: 95%;
-    }
-  }
+
+.biggerbutton {
+  width: 150px !important;
+  height: 100px !important;
+  font-size: 30px !important;
+}
+
+.toolBarButton, .drawerButton {
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
 
 .sidebar-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
-
-.toolbar {
-  flex-shrink: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 .drawer-container {
-  flex-grow: 1;
+  flex: 1;
+  display: flex;
+  width: 100%;
   overflow: hidden;
 }
 
-.content {
-  height: 100%;
+.drawer {
+  background-color: #222222;
+  width: 200px;
   overflow-y: auto;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.burger {
+  color: rgb(0, 0, 0);
+}
+
+@media all and (max-width: 500px) {
+  .toolBarButton {
+    display: none;
+  }
+
+  .toolbar {
+    height: 5%;
+  }
+
+  .sidebar-container {
+    height: 95%;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }

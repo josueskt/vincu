@@ -58,9 +58,7 @@ export const routes: Routes = [
     {
         path: 'vinculador', canActivate: [AuthGuard],
         data: { roles: ['VINCULADOR'] }, children: [
-            //  { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
-
-
+            // Add vinculador-specific routes here
         ]
     },
 
