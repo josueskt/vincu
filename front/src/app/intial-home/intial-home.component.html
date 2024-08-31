@@ -38,23 +38,76 @@
           <div class="logo-container mb-8 flex justify-center items-center">
             <img src="" alt="Logo" class="w-32 h-auto rounded-lg shadow-md">
           </div>
-          <nav class="space-y-4">
-            <a routerLink="/dashboard" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
-              <mat-icon class="mr-3">dashboard</mat-icon>
-              <span>Dashboard</span>
-            </a>
-            <a routerLink="/projects" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
-              <mat-icon class="mr-3">folder_open</mat-icon>
-              <span>Proyectos</span>
-            </a>
-            <a routerLink="/reports" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
-              <mat-icon class="mr-3">bar_chart</mat-icon>
-              <span>Reportes</span>
-            </a>
-            <a routerLink="/settings" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
-              <mat-icon class="mr-3">settings</mat-icon>
-              <span>Configuraciones</span>
-            </a>
+          <nav class="space-y-4"> 
+
+              @if (rol === "ADMINISTRADOR") {
+          
+                <a routerLink="/dashboard" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+                  <mat-icon class="mr-3">dashboard</mat-icon>
+                  <span>adminDashboard</span>
+                </a>
+                <a routerLink="/projects" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+                  <mat-icon class="mr-3">folder_open</mat-icon>
+                  <span>adminProyectos</span>
+                </a>
+                <a routerLink="/reports" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+                  <mat-icon class="mr-3">bar_chart</mat-icon>
+                  <span>adminReportes</span>
+                </a>
+                <a routerLink="/settings" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+                  <mat-icon class="mr-3">settings</mat-icon>
+                  <span>adminConfiguraciones</span>
+                </a>
+      
+  }
+  
+  @else if (rol === 'ESTUDIANTE') {
+  
+    <a routerLink="/dashboard" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">dashboard</mat-icon>
+      <span>estudianteDashboard</span>
+    </a>
+    <a routerLink="/projects" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">folder_open</mat-icon>
+      <span>estudianteProyectos</span>
+    </a>
+    <a routerLink="/reports" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">bar_chart</mat-icon>
+      <span>estudianteReportes</span>
+    </a>
+    <a routerLink="/settings" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">settings</mat-icon>
+      <span>estudianteConfiguraciones</span>
+    </a>
+  }
+
+
+  @else if (rol === 'VUNCULACION') {
+  
+    <a routerLink="/dashboard" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">dashboard</mat-icon>
+      <span>vinculadorDashboard</span>
+    </a>
+    <a routerLink="/projects" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">folder_open</mat-icon>
+      <span>vinculadorProyectos</span>
+    </a>
+    <a routerLink="/reports" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">bar_chart</mat-icon>
+      <span>vinculadorReportes</span>
+    </a>
+    <a routerLink="/settings" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+      <mat-icon class="mr-3">settings</mat-icon>
+      <span>VinculadorConfiguraciones</span>
+    </a>
+  }
+           
+
+
+
+
+
+            
           </nav>
         </div>
       </mat-drawer>
@@ -73,5 +126,5 @@
 }
 @else if (rol === 'VUNCULACION') {
 
-    <app-userhome></app-userhome>
+    <app-vunculadorhome></app-vunculadorhome>
 }
