@@ -2,7 +2,7 @@
 export enum Roles {
     ADMINISTRADOR = 'ADMINISTRADOR', //primer lor a crear 
     TUTOR= 'TUTOR',
-    VINCULADOR = 'VINCULADOR',
+    VUNCULACION = 'VUNCULACION',
     ESTUDIANTE = 'ESTUDIANTE'
   
   }

@@ -67,17 +67,11 @@
           
           <app-adminhome></app-adminhome>
     
-        }@else if (rol === 'ESTUDIANTE') {
-        
-            <app-userhome></app-userhome>
-        }
-        @else if (rol === 'VUNCULADOR') {
-        
-          <app-vunculadorhome></app-vunculadorhome>
-        }       
+}@else if (rol === 'ESTUDIANTE') {
 
+    <app-userhome></app-userhome>
+}
+@else if (rol === 'VUNCULACION') {
 
-      </mat-drawer-content>
-    </mat-drawer-container>
-  </div>
-  
+    <app-userhome></app-userhome>
+}
