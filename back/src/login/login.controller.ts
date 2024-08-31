@@ -14,7 +14,7 @@ export class LoginController {
 
   @Get()
   @UseGuards(RolesGuard)
-  @SetMetadata('roles', ['ADMINISTRADOR','PROFESOR' , 'ESTUDIANTE','BIBLIOTECA'])
+  @SetMetadata('roles', ['ADMINISTRADOR','PROFESOR' , 'ESTUDIANTE','VUNCULACION'])
   token_valid(){
 
   }
