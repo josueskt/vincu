@@ -14,7 +14,7 @@
           <mat-icon>notifications_none</mat-icon>
         </button>
         <button mat-icon-button [matMenuTriggerFor]="userMenu" class="flex items-center text-gray-400 hover:text-white hover:bg-gray-800 rounded-full transition-all duration-300 transform hover:scale-110">
-          <img src="" alt="User Avatar" class="w-8 h-8 rounded-full mr-2">
+          <mat-icon class="w-8 h-8 mr-2">account_circle</mat-icon>
           <mat-icon>expand_more</mat-icon>
         </button>
         <mat-menu #userMenu="matMenu">
@@ -60,23 +60,18 @@
       </mat-drawer>
       <mat-drawer-content class="content p-6 bg-gray-100">
         
+
+
+
         @if (rol === "ADMINISTRADOR") {
           
           <app-adminhome></app-adminhome>
     
-        }@else if (rol === 'ESTUDIANTE') {
-        
-            <app-userhome></app-userhome>
-        }
-        @else if (rol === 'VUNCULADOR') {
-        
-          <app-vunculadorhome></app-vunculadorhome>
-        }
-        
-        
+}@else if (rol === 'ESTUDIANTE') {
 
+    <app-userhome></app-userhome>
+}
+@else if (rol === 'VUNCULACION') {
 
-      </mat-drawer-content>
-    </mat-drawer-container>
-  </div>
-  
+    <app-userhome></app-userhome>
+}
