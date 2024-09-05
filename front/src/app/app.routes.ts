@@ -12,6 +12,9 @@ import { DocochoComponent } from './user/documentos/dococho/dococho.component';
 import { DocseisComponent } from './user/documentos/docseis/docseis.component';
 import { DocsieteComponent } from './user/documentos/docsiete/docsiete.component';
 import { DoctesComponent } from './user/documentos/doctes/doctes.component';
+import { FundacionFormComponent } from './vinculador/fundacion-form/fundacion-form.component';
+import { ProyectoFormComponent } from './vinculador/proyecto-form/proyecto-form.component';
+import { MicroProyectoFormComponent } from './vinculador/micro-proyecto-form/micro-proyecto-form.component';
 
 export const routes: Routes = [
 
@@ -58,7 +61,10 @@ export const routes: Routes = [
     {
         path: 'vinculador', canActivate: [AuthGuard],
         data: { roles: ['VUNCULACION'] }, children: [
-            //  { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
+              { path: "docuno", component: DocunoComponent ,canActivate: [AuthGuard] },
+              { path: "fuundacion-form", component: FundacionFormComponent ,canActivate: [AuthGuard] },
+              { path: "proyecto-form", component: ProyectoFormComponent ,canActivate: [AuthGuard] },
+              {path: "microproyecto-form", component: MicroProyectoFormComponent ,canActivate: [AuthGuard] },
 
 
         ]

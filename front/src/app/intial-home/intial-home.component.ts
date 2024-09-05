@@ -11,8 +11,10 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { UserhomeComponent } from '../user/userhome/userhome.component';
 import { AdminhomeComponent } from '../admin/adminhome/adminhome.component';
-import { VunculadorhomeComponent } from '../vinculador/vunculadorhome/vunculadorhome.component';
+
 import { AuthService } from '../roles/auth.service';
+import { VunculadorhomeComponent } from '../vinculador/vunculadorhome/vunculadorhome.component';
+import { FundacionFormComponent } from '../vinculador/fundacion-form/fundacion-form.component';
 
 @Component({
   selector: 'app-intial-home',
@@ -21,6 +23,7 @@ import { AuthService } from '../roles/auth.service';
     UserhomeComponent,
     AdminhomeComponent,
     VunculadorhomeComponent,
+    FundacionFormComponent,
     CommonModule,
     RouterLink,
     RouterLinkActive,
