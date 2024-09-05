@@ -14,6 +14,7 @@ import { AdminhomeComponent } from '../admin/adminhome/adminhome.component';
 
 import { AuthService } from '../roles/auth.service';
 import { VunculadorhomeComponent } from '../vinculador/vunculadorhome/vunculadorhome.component';
+import { FundacionFormComponent } from '../vinculador/fundacion-form/fundacion-form.component';
 
 @Component({
   selector: 'app-intial-home',
@@ -22,6 +23,7 @@ import { VunculadorhomeComponent } from '../vinculador/vunculadorhome/vunculador
     UserhomeComponent,
     AdminhomeComponent,
     VunculadorhomeComponent,
+    FundacionFormComponent,
     CommonModule,
     RouterLink,
     RouterLinkActive,

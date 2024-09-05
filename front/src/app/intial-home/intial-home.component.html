@@ -84,21 +84,21 @@
 
   @else if (rol === 'VUNCULACION') {
   
-    <a routerLink="/dashboard" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+    <a routerLink="/vinculador/fuundacion-form" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
       <mat-icon class="mr-3">dashboard</mat-icon>
-      <span>vinculadorDashboard</span>
+      <span>Dashboard</span>
     </a>
-    <a routerLink="/projects" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+    <a routerLink="/vinculador/proyecto-form" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
       <mat-icon class="mr-3">folder_open</mat-icon>
-      <span>vinculadorProyectos</span>
+      <span>Proyectos</span>
     </a>
-    <a routerLink="/reports" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
+    <a routerLink="/vinculador/microproyecto-form" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
       <mat-icon class="mr-3">bar_chart</mat-icon>
-      <span>vinculadorReportes</span>
+      <span>Reportes</span>
     </a>
     <a routerLink="/settings" class="flex items-center text-gray-300 hover:text-white hover:bg-gray-700 p-2 rounded-md transition-all duration-300 transform hover:translate-x-2">
       <mat-icon class="mr-3">settings</mat-icon>
-      <span>VinculadorConfiguraciones</span>
+      <span>Configuraciones</span>
     </a>
   }
            
@@ -113,7 +113,7 @@
       </mat-drawer>
       <mat-drawer-content class="content p-6 bg-gray-100">
         
-
+      
 
 
         @if (rol === "ADMINISTRADOR") {
@@ -127,4 +127,11 @@
 @else if (rol === 'VUNCULACION') {
 
     <app-vunculadorhome></app-vunculadorhome>
-}
+    
+    
+    
+  }
+  
+      </mat-drawer-content>
+      </mat-drawer-container>
+  
